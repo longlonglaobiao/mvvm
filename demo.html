@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <style></style>
+  </head>
+  <body>
+    <div id="app">
+      {{message}}
+      <br />
+      {{message}}
+
+      <div v-html="htmlData">...</div>
+
+      <div>
+        <input type="text" v-model="msg" value="测试数据" />
+        <span>{{msg}}</span>
+      </div>
+    </div>
+
+    <script type="module">
+      import Mvue from "./mvvm.js";
+      let vm = new Mvue({
+        el: "#app",
+        data: {
+          message: "测试数据",
+          htmlData: "<p>哈哈哈</p>",
+          msg: "..",
+        },
+      });
+      setTimeout(() => {
+        vm.$options.data.htmlData = "<h1>哈哈哈</1>";
+      }, 1000);
+    </script>
+  </body>
+</html>
